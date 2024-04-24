@@ -1,0 +1,32 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:vm="clr-namespace:CalcReplica.ViewModels"
+             mc:Ignorable="d" d:DesignWidth="500" d:DesignHeight="450"
+             x:Class="CalcReplica.Views.MainView"
+             x:DataType="vm:MainViewModel">
+
+	<Grid RowDefinitions="Auto, *, Auto" Margin="8">
+		
+		<!--Top Bar-->
+		<UniformGrid Grid.Row="0" Rows="1" Columns="5" Background="Orange" Height="50">
+			<Button Grid.Column="0" HorizontalAlignment="Center">Shrink</Button>
+			<Button Grid.Column="1" HorizontalAlignment="Center">Home</Button>
+			<Button Grid.Column="2" HorizontalAlignment="Center">Others</Button>
+			<Button Grid.Column="3" HorizontalAlignment="Center">Currency</Button>
+			<Button Grid.Column="4" HorizontalAlignment="Center">Settings</Button>
+		</UniformGrid>
+
+		<!--Top Bar-->
+		<TextBox Grid.Row="1" Watermark="0" FontSize="50" TextAlignment="Right" VerticalContentAlignment="Bottom" AcceptsReturn="True" BorderThickness="0">
+
+		</TextBox>
+
+		<!--Top Bar-->
+		<Grid Grid.Row="2" Background="Pink" Height="200">
+			
+		</Grid>
+	</Grid>
+	
+</UserControl>
