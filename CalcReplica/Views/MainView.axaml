@@ -11,22 +11,51 @@
 		
 		<!--Top Bar-->
 		<UniformGrid Grid.Row="0" Rows="1" Columns="5" Background="Orange" Height="50">
+			
+			<!--Shrink Button-->
 			<Button Grid.Column="0" HorizontalAlignment="Center">Shrink</Button>
+
+			<!--Home Button-->
 			<Button Grid.Column="1" HorizontalAlignment="Center">Home</Button>
+
+			<!--Others Button-->
 			<Button Grid.Column="2" HorizontalAlignment="Center">Others</Button>
+
+			<!--Currency Button-->
 			<Button Grid.Column="3" HorizontalAlignment="Center">Currency</Button>
+
+			<!--Settings Button-->
 			<Button Grid.Column="4" HorizontalAlignment="Center">Settings</Button>
+			
 		</UniformGrid>
 
-		<!--Top Bar-->
+		<!--Text Box-->
 		<TextBox Grid.Row="1" Watermark="0" FontSize="50" TextAlignment="Right" VerticalContentAlignment="Bottom" AcceptsReturn="True" BorderThickness="0">
 
 		</TextBox>
 
-		<!--Top Bar-->
-		<Grid Grid.Row="2" Background="Pink" Height="200">
+		<!--Calculator Keys-->
+		<Grid Grid.Row="2" ColumnDefinitions="Auto,*" Background="Pink" Height="200">
+
+			<!--Hidden Vertical Section-->
+			<Rectangle Grid.Column="0" Fill="Gray" Width="40" Height="200"></Rectangle>
+			
+			<!--Main Section-->
+			<Grid Grid.Column="1" RowDefinitions="Auto,*" Background="Yellow">
+				
+				<!--Hidden Horizontal Section-->
+				<UniformGrid Grid.Row="0" Rows="2" Height="80" Background="Black">
+					<Rectangle Grid.Row="0" Fill="Brown"></Rectangle>
+					<Rectangle Grid.Row="0" Fill="Blue"></Rectangle>
+				</UniformGrid>
+				
+				<!--Main Calculator-->
+				<Rectangle Grid.Row="1" Fill="Black"></Rectangle>
+				
+			</Grid>
 			
 		</Grid>
+		
 	</Grid>
 	
 </UserControl>
