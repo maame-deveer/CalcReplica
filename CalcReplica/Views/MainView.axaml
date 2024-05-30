@@ -3,31 +3,52 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:vm="clr-namespace:CalcReplica.ViewModels"
-             mc:Ignorable="d" d:DesignWidth="500" d:DesignHeight="450"
+             mc:Ignorable="d" d:DesignWidth="300" d:DesignHeight="450"
              x:Class="CalcReplica.Views.MainView"
              x:DataType="vm:MainViewModel">
 
-	<Grid RowDefinitions="Auto, *, Auto" Margin="8">
+	<Grid RowDefinitions="Auto, *, Auto" Margin="5">
 		
 		<!--Top Bar-->
-		<UniformGrid Grid.Row="0" Rows="1" Columns="5" Background="Orange" Height="50">
+		<Grid Grid.Row="0" ColumnDefinitions="*,*,*,*,*" Height="50">
+
+			<Grid.Styles>
+				<Style Selector="Button">
+					<Setter Property="Background" Value="Transparent"></Setter>
+					<Setter Property="HorizontalAlignment" Value="Stretch"></Setter>
+					<Setter Property="HorizontalContentAlignment" Value="Center"></Setter>
+				</Style>
+				<Style Selector="Image">
+					<Setter Property="Width" Value="15"></Setter>
+				</Style>
+			</Grid.Styles>
 			
 			<!--Shrink Button-->
-			<Button Grid.Column="0" HorizontalAlignment="Center">Shrink</Button>
+			<Button Grid.Column="0" HorizontalAlignment="Center">
+				<Image Source="{SvgImage /Assets/Images/shrink.svg}"></Image>
+			</Button>
 
 			<!--Home Button-->
-			<Button Grid.Column="1" HorizontalAlignment="Center">Home</Button>
+			<Button Grid.Column="1" HorizontalAlignment="Center" Height="30">
+				<Image Source="{SvgImage /Assets/Images/equalsign.svg}"></Image>
+			</Button>
 
 			<!--Others Button-->
-			<Button Grid.Column="2" HorizontalAlignment="Center">Others</Button>
+			<Button Grid.Column="2" HorizontalAlignment="Center">
+				<Image Source="{SvgImage /Assets/Images/othercalc.svg}"></Image>
+			</Button>
 
 			<!--Currency Button-->
-			<Button Grid.Column="3" HorizontalAlignment="Center">Currency</Button>
+			<Button Grid.Column="3" HorizontalAlignment="Center">
+				<Image Source="{SvgImage /Assets/Images/money.svg}"></Image>
+			</Button>
 
 			<!--Settings Button-->
-			<Button Grid.Column="4" HorizontalAlignment="Center">Settings</Button>
+			<Button Grid.Column="4" HorizontalAlignment="Center">
+				<Image Source="{SvgImage /Assets/Images/menu.svg}" Height="15"></Image>
+			</Button>
 			
-		</UniformGrid>
+		</Grid>
 
 		<!--Text Box-->
 		<TextBox Grid.Row="1" Watermark="0" FontSize="50" TextAlignment="Right" VerticalContentAlignment="Bottom" AcceptsReturn="True" BorderThickness="0">
@@ -35,22 +56,120 @@
 		</TextBox>
 
 		<!--Calculator Keys-->
-		<Grid Grid.Row="2" ColumnDefinitions="Auto,*" Background="Pink" Height="200">
+		<Grid Grid.Row="2" ColumnDefinitions="Auto,*" Height="250">
 
 			<!--Hidden Vertical Section-->
-			<Rectangle Grid.Column="0" Fill="Gray" Width="40" Height="200"></Rectangle>
+			<Grid Grid.Column="0" RowDefinitions="*,*,*,*,*,*,*">
+
+				<Grid.Styles>
+					<Style Selector="Button">
+						<Setter Property="Background" Value="Transparent"></Setter>
+						<Setter Property="FontSize" Value="18"></Setter>
+						<Setter Property="HorizontalAlignment" Value="Stretch"></Setter>
+						<Setter Property="HorizontalContentAlignment" Value="Center"></Setter>
+					</Style>
+					<Style Selector="Image">
+						<Setter Property="Height" Value="18"></Setter>
+					</Style>
+				</Grid.Styles>
+				
+				<Button Grid.Row="0">2nd</Button>
+				<Button Grid.Row="1">Xʸ</Button>
+				<Button Grid.Row="2">√x</Button>
+				<Button Grid.Row="3">X!</Button>
+				<Button Grid.Row="4">¹⁄ₓ</Button>
+				<Button Grid.Row="5">π</Button>
+				<Button Grid.Row="6">
+					<Image Source="{SvgImage /Assets/Images/keyboardToggle.svg}"></Image>
+				</Button>
+			</Grid>
 			
 			<!--Main Section-->
-			<Grid Grid.Column="1" RowDefinitions="Auto,*" Background="Yellow">
+			<Grid Grid.Column="1" RowDefinitions="Auto,*">
 				
 				<!--Hidden Horizontal Section-->
-				<UniformGrid Grid.Row="0" Rows="2" Height="80" Background="Black">
-					<Rectangle Grid.Row="0" Fill="Brown"></Rectangle>
-					<Rectangle Grid.Row="0" Fill="Blue"></Rectangle>
-				</UniformGrid>
+				<Grid Grid.Row="0" RowDefinitions="*,*" Height="80">
+					
+					<Grid Grid.Row="0" ColumnDefinitions="*,*,*,*">
+
+						<Grid.Styles>
+							<Style Selector="Button">
+								<Setter Property="Background" Value="Transparent"></Setter>
+								<Setter Property="FontSize" Value="18"></Setter>
+								<Setter Property="HorizontalAlignment" Value="Stretch"></Setter>
+								<Setter Property="HorizontalContentAlignment" Value="Center"></Setter>
+							</Style>
+						</Grid.Styles>
+						
+						<Button Grid.Column="0">deg</Button>
+						<Button Grid.Column="1">sin</Button>
+						<Button Grid.Column="2">cos</Button>
+						<Button Grid.Column="3">tan</Button>
+					</Grid>
+					
+					<Grid Grid.Row="1" ColumnDefinitions="*,*,*,*">
+
+						<Grid.Styles>
+							<Style Selector="Button">
+								<Setter Property="Background" Value="Transparent"></Setter>
+								<Setter Property="FontSize" Value="18"></Setter>
+								<Setter Property="HorizontalAlignment" Value="Stretch"></Setter>
+								<Setter Property="HorizontalContentAlignment" Value="Center"></Setter>
+							</Style>
+						</Grid.Styles>
+						
+						<Button Grid.Column="0">lg</Button>
+						<Button Grid.Column="1">ln</Button>
+						<Button Grid.Column="2">(</Button>
+						<Button Grid.Column="3">)</Button>
+					</Grid>
+				</Grid>
 				
 				<!--Main Calculator-->
-				<Rectangle Grid.Row="1" Fill="Black"></Rectangle>
+				<Grid Grid.Row="1" ColumnDefinitions="*,*,*,*" RowDefinitions="*,*,*,*,*">
+
+					<Grid.Styles>
+						<Style Selector="Button">
+							<Setter Property="Background" Value="Transparent"></Setter>
+							<Setter Property="FontSize" Value="18"></Setter>
+							<Setter Property="HorizontalAlignment" Value="Stretch"></Setter>
+							<Setter Property="HorizontalContentAlignment" Value="Center"></Setter>
+						</Style>
+						<Style Selector="Image">
+							<Setter Property="Width" Value="20"></Setter>
+						</Style>
+					</Grid.Styles>
+					
+					<!--Col 0 Row 0,1,2,3,4-->
+					<Button Grid.Column="0" Grid.Row="0">C</Button>
+					<Button Grid.Column="0" Grid.Row="1">7</Button>
+					<Button Grid.Column="0" Grid.Row="2">4</Button>
+					<Button Grid.Column="0" Grid.Row="3">1</Button>
+					<Button Grid.Column="0" Grid.Row="4">e</Button>
+
+					<!--Col 1 Row 0,1,2,3,4-->
+					<Button Grid.Column="1" Grid.Row="0">
+						<Image Source="{SvgImage /Assets/Images/backspace.svg}"></Image>
+					</Button>
+					<Button Grid.Column="1" Grid.Row="1">8</Button>
+					<Button Grid.Column="1" Grid.Row="2">5</Button>
+					<Button Grid.Column="1" Grid.Row="3">2</Button>
+					<Button Grid.Column="1" Grid.Row="4">0</Button>
+
+					<!--Col 2 Row 0,1,2,3,4-->
+					<Button Grid.Column="2" Grid.Row="0">%</Button>
+					<Button Grid.Column="2" Grid.Row="1">9</Button>
+					<Button Grid.Column="2" Grid.Row="2">6</Button>
+					<Button Grid.Column="2" Grid.Row="3">3</Button>
+					<Button Grid.Column="2" Grid.Row="4">.</Button>
+
+					<!--Col 0 Row 0,1,2,3,4-->
+					<Button Grid.Column="3" Grid.Row="0" FontSize="25">÷</Button>
+					<Button Grid.Column="3" Grid.Row="1" FontSize="25">×</Button>
+					<Button Grid.Column="3" Grid.Row="2" FontSize="25">−</Button>
+					<Button Grid.Column="3" Grid.Row="3" FontSize="25">+</Button>
+					<Button Grid.Column="3" Grid.Row="4" FontSize="25">=</Button>
+				</Grid>
 				
 			</Grid>
 			

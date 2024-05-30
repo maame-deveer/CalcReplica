@@ -9,9 +9,21 @@
   <ItemGroup>
     <AvaloniaResource Include="Assets\**" />
   </ItemGroup>
+  
+  <ItemGroup>
+    <None Remove="Assets\Images\backspace.svg" />
+    <None Remove="Assets\Images\equalsign.svg" />
+    <None Remove="Assets\Images\extend.svg" />
+    <None Remove="Assets\Images\keyboardToggle.svg" />
+    <None Remove="Assets\Images\menu.svg" />
+    <None Remove="Assets\Images\money.svg" />
+    <None Remove="Assets\Images\othercalc.svg" />
+    <None Remove="Assets\Images\shrink.svg" />
+  </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="Avalonia" Version="$(AvaloniaVersion)" />
+    <PackageReference Include="Avalonia.Svg.Skia" Version="11.0.0.18" />
     <PackageReference Include="Avalonia.Themes.Fluent" Version="$(AvaloniaVersion)" />
     <PackageReference Include="Avalonia.Fonts.Inter" Version="$(AvaloniaVersion)" />
     <PackageReference Include="Avalonia.ReactiveUI" Version="$(AvaloniaVersion)" />
